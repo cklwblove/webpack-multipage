@@ -15,6 +15,8 @@
 
 首先，全局安装 [Webpack](https://www.npmjs.com/package/webpack).
 
+*注：建议安装下淘宝的镜像，因为国内对于**npm**访问速度太慢，具体操作参照[淘宝镜像](https://npm.taobao.org)，下面有**cnpm**命令的安装说明，接下来就可以使用cnpm*
+
 ```bash
 $ npm i -g webpack
 ```
