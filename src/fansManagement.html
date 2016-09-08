@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>蒲公英金融工作室管理中台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+</head>
+
+<body>
+    <!--container-->
+    <div id="mainContainer" class="container">
+        <div id="mainView">
+            <div class="page-fans-management">
+
+                <div class="header">
+                    <div class="square"><i class="iconfont">&#xe608;</i></div>
+                    <div class="head-content">粉丝列表</div>
+                </div>
+
+                <div class="pagecontent">
+                    <div class="page-nav">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#fansList" role="tab" data-toggle="tab">粉丝列表</a></li>
+                            <li role="presentation"><a href="#blockList" role="tab" data-toggle="tab">黑名单</a></li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane fans-list active" id="fansList">
+                                <div class="table-list">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <input type="checkbox" class="fans-checkbox">
+                                                </th>
+                                                <th>粉丝昵称</th>
+                                                <th>手机号</th>
+                                                <th>归属</th>
+                                                <th>注册时间</th>
+                                                <th>消费金额/金币</th>
+                                                <th>提问/次</th>
+                                                <th>评论/次</th>
+                                                <th>点赞/次</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                    <p class="tips hide">该列表目前没有数据~~</p>
+                                </div>
+
+                                <div class="page-num">
+                                    <div class="m-pagination"></div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane black-fans-list" id="blockList">
+                                <div class="table-list">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <input type="checkbox" class="black-checkbox">
+                                                </th>
+                                                <th>粉丝昵称</th>
+                                                <th>手机号</th>
+                                                <th>归属</th>
+                                                <th>打赏总金额</th>
+                                                <th>评论数</th>
+                                                <th>点赞数</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                    <p class="tips hide">该列表目前没有数据~~</p>
+                                </div>
+
+                                <div class="page-num">
+                                    <div class="m-pagination"></div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <!--粉丝列表及黑名单列表添加筛选条件模态框-->
+                        <div class="modal fade fans-manage-pop" id="fansManageDemand" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                            <div class="modal-dialog " role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title">筛选条件</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <label class="control-label">归属：</label>
+                                                <label class="checkbox-inline">
+                                                    <input type="radio" name="optionsRadiosinline" id="optionsRadios1" value="option1" checked> 部门 1
+                                                </label>
+                                                <label class="checkbox-inline">
+                                                    <input type="radio" name="optionsRadiosinline" id="optionsRadios2" value="option2"> 部门 2
+                                                </label>
+                                                <label class="checkbox-inline">
+                                                    <input type="radio" name="optionsRadiosinline" id="optionsRadios3" value="option3"> 部门 3
+                                                </label>
+                                                <label class="checkbox-inline">
+                                                    <input type="radio" name="optionsRadiosinline" id="optionsRadios4" value="option4"> 部门 4
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">申请日期：</label>
+                                                <div class="input-prepend input-group">
+                                                    <span class="add-on input-group-addon">
+                                         <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                                     </span>
+                                                    <input type="text" readonly="readonly" name="reservation" id="fansReservation" class="form-control datepicker" value="2016-8-21 - 2016-8-22" />
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                        <button type="button" class="btn btn-success">确定</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

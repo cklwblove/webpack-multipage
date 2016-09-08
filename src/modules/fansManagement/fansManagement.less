@@ -1,0 +1,136 @@
+@import "~daterangepicker/daterangepicker-bs3.css";
+@import "../../assets/less/variable";
+
+.page-fans-management{
+  font-size: 14px;
+  .header{
+    position: relative;
+    margin: 25px 45px;
+    height: 45px;
+    border-bottom: 1px solid @colorBorder;
+    .square{
+      float: left;
+      border-radius: 5px;
+      text-align: center;
+      line-height: 30px;
+      font-size: 18px;
+      color: #fff;
+      width: 30px;
+      height: 30px;
+      background-color:@fontGreen;
+    }
+    .head-content{
+      line-height: 30px;
+      display: inline-block;
+      margin-left: 10px;
+    }
+  }
+
+  /*--page-content--*/
+  .pagecontent{
+    position: relative;
+    margin: 25px 45px 25px 45px;
+    .search-button{
+        float: right;
+        margin-top: -45px;
+        width: 350px;
+      .form-control{
+        border-radius: 4px 0 0 4px;
+        border-right: 0;
+      }
+      .form-control-feedback {
+        cursor: pointer;
+        z-index: 9;
+        font-size: 18px;
+        line-height: 40px;
+        color: @colorBorder;
+        top: -2px;
+        right: 15px;
+      }
+      }
+    .btn-search{
+      border-radius: 0 4px 4px 0;/*搜索button通用样式设置*/
+      margin-right: 30px;
+    }
+
+    /*粉丝列表头部导航栏*/
+    .fans-list{
+      .search-button{
+        margin-right: 360px;
+      }
+      .btn-search{
+        margin-right: 30px;
+      }
+    }
+
+    /*黑名单头部导航栏*/
+    .black-fans-list{
+      .search-button{
+        margin-right: 273px;
+      }
+
+    }
+
+    .page-btn-group{
+        float: right;
+        margin-top: -45px;
+        button{
+          min-width: 83px;/*规定页面button的最小尺寸*/
+        }
+      }
+
+    /*--table-list--*/
+    .table-list{
+      margin-top: 20px;
+      table{
+        margin-bottom: 0;
+      }
+      thead{
+        background-color: @tbHeader;
+      }
+      input{
+        width: 16px;
+        height: 16px;
+      }
+      td{
+        vertical-align: baseline;
+      }
+      i{
+        cursor: pointer;
+        padding-right:15px;
+        font-size: 16px;
+      }
+      .red{
+        color: @fontRed;
+      }
+      .green{
+        color: @fontGreen;
+      }
+      .blue{
+        color: @fontBlue;
+      }
+    }
+    /*--//table-list--*/
+
+    /*--page-num--*/
+    .page-num{
+      text-align: center;
+     .num-left{
+       margin-right: 2px;
+       margin-top: -1px;
+     }
+     .num-right{
+       margin-left: 1px;
+       margin-top: -1px;
+     }
+    }
+    /*--//page-num--*/
+
+    }
+  /*--page-content--*/
+  .tips{
+    line-height: 100px;
+    width: 100%;
+    text-align: center;
+  }
+}
