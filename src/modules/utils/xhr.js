@@ -38,9 +38,7 @@ var xhr = {
     loadWeb: function (params) {
         params = params || {};
         params.method = 'post';
-        var options = {
-            jsonp: "jsonpcallback"
-        };
+        var options = {};
 
         params.data = func.extend(params.data, options);
 
@@ -51,14 +49,12 @@ var xhr = {
     sendRequest: function (url, data, successFn, params) {
 
         var req = {
-            url: G_CONFIG.api + url,
+            url: g_config.api + url,
             data: data || {},
             success: function (res) {
-                var data = [res.data][0] ? res.data[0] : res;
-                var jsonData = func.jsonpcallback(data);
+                var jsonData = [res.data][0] ? res.data[0] : res;
 
                 if(jsonData.error_no == '20') { // 登录超时
-
                     return;
                 }
 
@@ -82,7 +78,7 @@ var xhr = {
 
             if(params.isUpload) { // 上传路径
                 req.url = '';
-                req.url = CT.UPLOADING_API + url;
+                req.url = g_config + url;
             }
         }
 

@@ -16,7 +16,7 @@ webpackConfig.plugins.push(
     // 如果代码中有需要插入静态的全局变量，或者需要根据环境变量来区分的分支，可以使用 DefinePlugin 插件来插入静态环境变量，插入的变量在编译时将被处理:
     new webpack.DefinePlugin({
         __DEV__: JSON.stringify(JSON.parse(process.env.DEV || 'true')),
-        G_CONFIG: '' + JSON.stringify(configuration)
+        g_config: '' + JSON.stringify(configuration)
     }),
 
     new ExtractTextPlugin('[name].css'),
