@@ -78,7 +78,7 @@ var xhr = {
 
             if(params.isUpload) { // 上传路径
                 req.url = '';
-                req.url = g_config + url;
+                req.url = g_config.uploading_api + url;
             }
         }
 
