@@ -4,12 +4,13 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+var autoprefixer = require('autoprefixer');
 
 var __PRODUCTION__ = process.env.PRODUCTION;
 var lessLoader;
 
 if (__PRODUCTION__) {
-    lessLoader = ExtractTextPlugin.extract('style-loader', 'css-loader!autoprefixer-loader!less-loader');
+    lessLoader = ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader');
 } else {
     lessLoader = 'style!css!less';
 }
@@ -40,7 +41,7 @@ var config = {
                 loader: lessLoader
             }, {
                 test: /\.css$/,
-                loader: 'style-loader!css-loader'
+                loader: 'style-loader!css-loader?postcss-loader'
             }, {
                 test: /\.handlebars$/,
                 loader: 'handlebars-loader?helperDirs[]=' + srcModulesPath + '/helpers' // 路径问题 需要依赖handlebars
@@ -56,6 +57,7 @@ var config = {
             }
         ]
     },
+    postcss: [autoprefixer()],
     resolve: {
         alias: { // 定义别名
             'pagination': srcVenderPath + '/mricode.pagination',

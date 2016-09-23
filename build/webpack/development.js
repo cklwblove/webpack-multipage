@@ -1,4 +1,3 @@
-var utils = require('./utils');
 var configuration = require('../configuration');
 var webpack = require('webpack');
 var webpackConfig = require('./_base');

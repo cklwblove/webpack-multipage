@@ -10,7 +10,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git@github.com:cklwblove/webapck-multipage.git"
+        "url": "git@github.com:cklwblove/webpack-multipage.git"
     },
     "license": "MIT",
     "scripts": {
@@ -21,7 +21,7 @@
         "build_with_source_map": "npm run build --devtool source-map"
     },
     "devDependencies": {
-        "autoprefixer-loader": "^3.1.0",
+        "autoprefixer": "^6.4.1",
         "browser-sync": "^2.11.1",
         "browser-sync-webpack-plugin": "^1.0.1",
         "clean-webpack-plugin": "^0.1.8",
@@ -38,6 +38,7 @@
         "imports-loader": "^0.6.5",
         "less": "^2.5.3",
         "less-loader": "^2.2.2",
+        "postcss-loader": "^0.13.0",
         "moment": "^2.14.1",
         "style-loader": "^0.13.0",
         "toastr": "^2.1.2",
