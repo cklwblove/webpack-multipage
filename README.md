@@ -51,6 +51,7 @@ $ npm run build # 上线模式
 └─src
     ├─api                   # => 模拟请求部分数据
     ├─assets                # => 静态资源
+    │  ├─dll
     │  ├─fonts
     │  ├─images
     │  ├─js                 # => 第三方js文件放到这里
