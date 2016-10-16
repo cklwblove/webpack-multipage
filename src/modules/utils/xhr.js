@@ -49,12 +49,13 @@ var xhr = {
     sendRequest: function (url, data, successFn, params) {
 
         var req = {
-            url: g_config.api + url,
+            url: G_CONFIG.api + url,
             data: data || {},
             success: function (res) {
                 var jsonData = [res.data][0] ? res.data[0] : res;
 
                 if(jsonData.error_no == '20') { // 登录超时
+
                     return;
                 }
 
@@ -78,7 +79,7 @@ var xhr = {
 
             if(params.isUpload) { // 上传路径
                 req.url = '';
-                req.url = g_config.uploading_api + url;
+                req.url = G_CONFIG.uploading_api + url;
             }
         }
 

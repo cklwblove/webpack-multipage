@@ -3,10 +3,9 @@ require('../main');
 
 var func = require('../utils/func'),
     service = require('./service'),
-    daterangepicker = require('daterangepicker'),
     pagination = require('../pagination/pagination'),
-    balckUserListTpl = require('./balckUserList.handlebars'),
-    userListTpl = require('./userList.handlebars');
+    balckUserListTpl = require('./balckUserList.hbs'),
+    userListTpl = require('./userList.hbs');
 
 var fundsManagement = {
     init: function() {
@@ -65,7 +64,7 @@ var fundsManagement = {
     getUserList: function(params, callback) {
         var output = '';
         service.getUserList({
-            branch_no : "3",
+            branch_no : "2",
             fans_type : params.type, // 0黑名单
             page_no: params.page_no || 1
         }, function(res) {

@@ -1,0 +1,19 @@
+{
+  "name": "vendor_library",
+  "content": {
+    "../../node_modules/.npminstall/jquery/3.1.1/jquery/dist/jquery.js": 1,
+    "../../node_modules/.npminstall/bootstrap-webpack/0.0.5/bootstrap-webpack/bootstrap-scripts.loader.js!../config/bootstrap/bootstrap.config.js": 2,
+    "../../node_modules/.npminstall/bootstrap-webpack/0.0.5/bootstrap-webpack/index.loader.js!../config/bootstrap/bootstrap.config.js": 3,
+    "../../node_modules/.npminstall/bootstrap/3.3.7/bootstrap/js/button.js": 4,
+    "../../node_modules/.npminstall/bootstrap/3.3.7/bootstrap/js/dropdown.js": 5,
+    "../../node_modules/.npminstall/bootstrap/3.3.7/bootstrap/js/modal.js": 6,
+    "../../node_modules/.npminstall/bootstrap/3.3.7/bootstrap/js/tab.js": 7,
+    "../../node_modules/.npminstall/bootstrap/3.3.7/bootstrap/js/transition.js": 8,
+    "../../node_modules/.npminstall/extract-text-webpack-plugin/1.0.1/extract-text-webpack-plugin/loader.js?{\"remove\":true}!../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js?minimize&-autoprefixer!../../node_modules/.npminstall/postcss-loader/0.13.0/postcss-loader/index.js!../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!../../node_modules/.npminstall/bootstrap-webpack/0.0.5/bootstrap-webpack/bootstrap-styles.loader.js!../config/bootstrap/bootstrap.config.js": 9,
+    "../../node_modules/.npminstall/toastr/2.1.2/toastr/toastr.js": 10,
+    "../../node_modules/.npminstall/webpack/1.13.2/webpack/buildin/amd-define.js": 11,
+    "../../src/assets/js/bootstrap-datetimepicker.js": 12,
+    "../../src/assets/js/jquery.modaldialog.js": 13,
+    "../../src/assets/js/mricode.pagination.js": 14
+  }
+}

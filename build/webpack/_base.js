@@ -1,32 +1,17 @@
 var path = require('path');
 var glob = require('glob');
+var dir = require('../config/dir');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 
-var __PRODUCTION__ = process.env.PRODUCTION;
-var lessLoader;
-
-if (__PRODUCTION__) {
-    lessLoader = ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader');
-} else {
-    lessLoader = 'style!css!less';
-}
-
 var moduleName = [];
-var basePath = './src/modules/';
-var nodemodulesPath = path.resolve(__dirname, '../../node_modules');
-var srcPath = path.resolve(__dirname, '../../src');
-var srcVenderPath = path.resolve(__dirname, '../../src/assets/js');
-var srcModulesPath = path.resolve(__dirname, '../../src/modules');
-
 var pages = getEntry('src/**/*.html', 'src/');
 var entries = getEntry('src/modules/**/*.js', 'src/modules/');
 var chunks = Object.keys(entries);
+// console.log('entries' + JSON.stringify(entries));
 
-entries.vendor = ['jquery', 'bootstrap'];
 
 var config = {
     entry: entries,
@@ -35,46 +20,30 @@ var config = {
         filename: '[name].js',
         chunkFilename: '[id].chunk.js' //chunk生成的配置
     },
-    module: {
-        loaders: [{
-                test: /\.less$/,
-                loader: lessLoader
-            }, {
-                test: /\.css$/,
-                loader: 'style-loader!css-loader?postcss-loader'
-            }, {
-                test: /\.handlebars$/,
-                loader: 'handlebars-loader?helperDirs[]=' + srcModulesPath + '/helpers' // 路径问题 需要依赖handlebars
-            }, {
-                test: /\.html$/,
-                loader: 'html-loader' //避免压缩html,https://github.com/webpack/html-loader/issues/50
-            }, {
-                test: /.*\.(gif|png|jpe?g|svg)$/i,
-                loader: 'url?limit=8192&name=assets/[hash:8].[ext]'
-            }, {
-                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-                loader: 'url?limit=8192&name=assets/[hash:8].[ext]'
-            }
-        ]
-    },
+    module: require('../config/module'),
     postcss: [autoprefixer()],
-    resolve: {
-        alias: { // 定义别名
-            'pagination': srcVenderPath + '/mricode.pagination',
-            'modaldialog': srcVenderPath + '/jquery.modaldialog',
-            'simpledateformat': srcVenderPath + '/jquery.simpledateformat'
-        }
-    },
+    // eslint: {
+    //     configFile: path.resolve(dir.staticRootDir, './.eslintrc'), // 指定eslint的配置文件在哪里
+    //     failOnWarning: true, // eslint报warning了就终止webpack编译
+    //     failOnError: true, // eslint报error了就终止webpack编译
+    //     cache: true, // 开启eslint的cache，cache存在node_modules/.cache目录里
+    // },
+    resolve: require('../config/resolve'),
     plugins: [
+        new webpack.DllReferencePlugin({
+            context: __dirname,
+            manifest: require(dir.staticRootDir + '/manifest.json')
+        }),
         new webpack.ProvidePlugin({
             $: 'jquery', //加载jq
             'jQuery': 'jquery',
-            'window.jQuery': 'jquery'
+            'window.jQuery': 'jquery',
+            'window.$': 'jquery',
         }),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor', // 将公共模块提取，生成名为`vendors`的chunk
+            name: 'vendor', // 将公共模块提取，生成名为`common`的chunk
             chunks: chunks,
             minChunks: chunks.length // 提取所有entry共同依赖的模块
         }),
@@ -85,7 +54,10 @@ var config = {
         }, {
             from: './src/pages',
             to: 'pages'
-        }, ])
+        }, {
+            from: './src/assets/dll',
+            to: 'assets/dll'
+        }])
     ],
     //添加了此项，则表明从外部引入，内部不会打包合并进去
     // externals: {

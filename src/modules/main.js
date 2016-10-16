@@ -1,6 +1,7 @@
 /**
  * 初始化一些变量
  */
+require('!!bootstrap-webpack!bootstrapConfig');
 require('../assets/less/app.less');
 
 var config = require('./config');

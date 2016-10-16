@@ -1,52 +1,58 @@
 {
-    "name": "webpack-multipage",
-    "description": "based on webpack multi-page application development.",
-    "version": "1.0.0",
-    "author": "cklwblove",
-    "keywords": [
-        "multi-page",
-        "demo",
-        "webpack"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "git@github.com:cklwblove/webpack-multipage.git"
-    },
-    "license": "MIT",
-    "scripts": {
-        "build": "set PRODUCTION=1 && webpack --config build/webpack/production.js --progress",
-        "uat": "set UAT=1 && webpack --config build/webpack/production.js --progress",
-        "test": "set TEST=1 && webpack --config build/webpack/production.js --progress",
-        "dev": "set DEV=1 && webpack --config build/webpack/development.js --progress --watch",
-        "build_with_source_map": "npm run build --devtool source-map"
-    },
-    "devDependencies": {
-        "autoprefixer": "^6.4.1",
-        "browser-sync": "^2.11.1",
-        "browser-sync-webpack-plugin": "^1.0.1",
-        "clean-webpack-plugin": "^0.1.8",
-        "copy-webpack-plugin": "^1.1.1",
-        "css-loader": "^0.23.1",
-        "daterangepicker": "^0.0.3",
-        "extract-text-webpack-plugin": "^1.0.1",
-        "file-loader": "^0.8.5",
-        "glob": "^7.0.6",
-        "handlebars": "^4.0.5",
-        "handlebars-loader": "^1.3.0",
-        "html-loader": "^0.4.0",
-        "html-webpack-plugin": "^2.7.1",
-        "imports-loader": "^0.6.5",
-        "less": "^2.5.3",
-        "less-loader": "^2.2.2",
-        "postcss-loader": "^0.13.0",
-        "moment": "^2.14.1",
-        "style-loader": "^0.13.0",
-        "toastr": "^2.1.2",
-        "url-loader": "^0.5.7",
-        "webpack": "^1.12.11"
-    },
-    "dependencies": {
-        "jquery": "^3.1.0",
-        "bootstrap": "^3.3.6"
-    }
+  "name": "webpack-multipage",
+  "description": "based on webpack multi-page application development.",
+  "version": "1.0.1",
+  "author": "cklwblove",
+  "keywords": [
+    "multi-page",
+    "demo",
+    "webpack"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:cklwblove/webpack-multipage.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "clean:dist": "rimraf dist",
+    "clean:dev": "rimraf dev",
+    "build": "set PRODUCTION=1 && npm run build:production",
+    "uat": "set UAT=1 && npm run build:production",
+    "test": "set TEST=1 && npm run build:production",
+    "dev": "set DEV=1 && npm run clean:dev && webpack --config build/webpack/development.js --progress --watch",
+    "build:production": "npm run clean:dist && webpack --config build/webpack/production.js --progress",
+    "build:dll": "webpack --config build/webpack/dll.js --progress",
+    "build_with_source_map": "npm run build --devtool source-map"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.4.1",
+    "bootstrap-webpack": "^0.0.5",
+    "browser-sync": "^2.11.1",
+    "browser-sync-webpack-plugin": "^1.0.1",
+    "copy-webpack-plugin": "^1.1.1",
+    "css-loader": "^0.23.1",
+    "exports-loader": "^0.6.3",
+    "expose-loader": "^0.7.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.8.5",
+    "glob": "^7.0.6",
+    "handlebars": "^4.0.5",
+    "handlebars-loader": "^1.3.0",
+    "html-loader": "^0.4.0",
+    "html-webpack-plugin": "^2.7.1",
+    "import-loader": "0.0.1",
+    "imports-loader": "^0.6.5",
+    "less": "^2.5.3",
+    "less-loader": "^2.2.2",
+    "postcss-loader": "^0.13.0",
+    "rimraf": "^2.5.4",
+    "style-loader": "^0.13.0",
+    "toastr": "^2.1.2",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.12.11"
+  },
+  "dependencies": {
+    "jquery": "^3.1.0",
+    "bootstrap": "^3.3.6"
+  }
 }

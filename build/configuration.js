@@ -27,7 +27,6 @@ var config = {
 };
 
 var __PRODUCTION__ = process.env.PRODUCTION;
-var __DEV__ = process.env.DEV;
 var __TEST__ = process.env.TEST;
 var __UAT__ = process.env.UAT;
 

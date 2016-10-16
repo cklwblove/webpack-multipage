@@ -28,9 +28,6 @@ var pagination = {
         }).on('pageSizeChanged', function (event, pageSize) {  //页面大小切换事件
             ($.isFunction(callback)) && callback(++data.pageSize);
         });
-    },
-    render: function(selector, totalNum) {
-        selector.pagination('render', [totalNum]);
     }
 
 };

@@ -1,0 +1,21 @@
+{{#each this}}
+<tr>
+     <td><input type="checkbox" class="fans-checkbox-list" data-customer-id="{{customer_id}}" data-tenant-id="{{tenant_id}}"></td>
+     <td>{{customer_name}}</td>
+     <td>{{mobile}}</td>
+     <td>{{branch_name}}</td>
+     <td>{{formatDate register_time pattern="MM-dd HH:mm"}}</td>
+     <td>{{total_amount}}</td>
+     <td>{{question_amount}}</td>
+     <td>{{reply_amount}}</td>
+     <td>{{upvote_amount}}</td>
+     <td>
+          {{#compare gag_flag '==' '0'}}
+          <i class="iconfont red js-gagList" data-gag-flag="{{gag_flag}}" data-customer-id="{{customer_id}}" data-tenant-id="{{tenant_id}}" data-placement="bottom" title="取消禁言">&#xe60b;</i>
+          {{else}}
+          <i class="iconfont blue js-gagList" data-gag-flag="{{gag_flag}}" data-customer-id="{{customer_id}}" data-tenant-id="{{tenant_id}}" data-placement="bottom" title="禁言">&#xe60a;</i>
+          {{/compare}}
+          <i class="iconfont green js-blackList" data-customer-id="{{customer_id}}" data-tenant-id="{{tenant_id}}" data-placement="bottom" title="加入黑名单">&#xe608;</i>
+     </td>
+</tr>
+{{/each}}

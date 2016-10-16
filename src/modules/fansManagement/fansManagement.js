@@ -5,16 +5,18 @@ require('modaldialog');
 var func = require('../utils/func'),
     common = require('../common/common'),
     service = require('./service'),
-    daterangepicker = require('daterangepicker'),
+    datetimepicker = require('datetimepicker'),
     pagination = require('../pagination/pagination'),
-    balckUserListTpl = require('./balckUserList.handlebars'),
-    userListTpl = require('./userList.handlebars');
+    balckUserListTpl = require('./balckUserList.hbs'),
+    userListTpl = require('./userList.hbs');
 
 var fansManagement = {
     init: function() {
         this.getFansList();
         this.getBlackUsersList();
         this.bindEvent();
+
+        $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
     },
 
     onBlackUserList: function() {
@@ -22,6 +24,7 @@ var fansManagement = {
         $(".user-list").removeClass("active");
         $(".fans-list").hide();
         $(".black-fans-list").show();
+
     },
 
     getFansList: function() {
@@ -64,9 +67,9 @@ var fansManagement = {
 
     getUserList: function(params, callback) {
         var output = '';
-        
+
         service.getUserList({
-            branch_no : "3",
+            branch_no : "2",
             fans_type : params.type, // 0黑名单
             page_no: params.page_no || 1
         }, function(res) {
@@ -98,6 +101,7 @@ var fansManagement = {
 
     gag: function(that, customer_id, tenant_id, gag_type) {
         $.modaldialog.confirm({message: '确认要执行此操作吗？'}).on(function(e) {
+
             // 取消
             if (!e) {
                 return;
