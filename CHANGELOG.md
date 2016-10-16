@@ -14,6 +14,6 @@
 
 - 项目src
 
-  - handlebarjs文件后缀名由.handlebar修改为.hbs
+  - handlebarjs文件后缀名由.handlebars修改为.hbs
 
   - 日历插件换为[bootstrap-datetimepicker](http://www.bootcss.com/p/bootstrap-datetimepicker/)
